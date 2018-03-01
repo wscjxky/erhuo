@@ -1,0 +1,121 @@
+<html>
+
+<style>
+    .layui-layer.layui-anim.layui-layer-page{
+        top:150px !important;
+    }
+</style>
+<!-- Content Header (Page header) -->
+<body>
+<!-- Main content -->
+<div id="qrcode" ></div>
+<div class="row">
+
+    <div class="col-md-1" style="margin-left: 30px">
+        <h3>商品列表</h3>
+        <h5>(共{$count}条记录)</h5>
+    </div>
+    <!--<form class="navbar-form form-inline" style="margin-top: 50px" method="post" action="/index.php/Admin/order/export_order"  name="search-form2" id="search-form2">-->
+
+        <!--<div class="sDiv">-->
+            <!--&lt;!&ndash;<div class="col-md-1">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input type="text" size="30" id="add_time_begin" name="add_time_begin" value="" class="qsbox"  placeholder="起始时间">&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-md-2">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input type="text" size="30" id="add_time_end" name="add_time_end" value="" class="qsbox"  placeholder="结束时间">&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+            <!--&lt;!&ndash;<div class="col-md-1">&ndash;&gt;-->
+                <!--&lt;!&ndash;<select name="shipping_status" class="select" style="width:100px;">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option value="0">正在</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option value="1">已参加</option>&ndash;&gt;-->
+                <!--&lt;!&ndash;</select>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div class="col-md-1">&ndash;&gt;-->
+                <!--&lt;!&ndash;<select  name="keytype" class="select">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option value="consignee">商品发布者</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option value="order_sn">商品编号</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</foreach>&ndash;&gt;-->
+                <!--&lt;!&ndash;</select>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-md-2">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input type="text" size="30" name="keywords" class="qsbox" placeholder="搜索相关数据...">&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+
+        <!--</div>-->
+    <!--</form>-->
+</div>
+
+
+
+
+<table class="table table-hover table-condensed table-striped table-bordered">
+    <!--<div class="navbar-form form-inline" style="margin-top: 50px" method="post" action="/index.php/Admin/order/export_order"  name="search-form2" id="search-form2">-->
+        <div class="col-md-1">
+            <!--<select  id="selector" name="keytype" class="select">-->
+                <!--<option value="title">商品名称</option>-->
+                <!--<option value="speaker">主讲老师</option>-->
+            <!--</select>-->
+            <a href="goodinfo"><button type="button" class="btn btn-primary">添加商品</button></a>
+
+        </div>
+        <!--<div class="col-md-2">-->
+            <!--<input id="keyword"  type="text" size="30" name="keywords" class="qsbox" placeholder="输入相关数据">-->
+        <!--</div>-->
+        <!--<div class="col-md-1">-->
+            <!--<button class="btn btn-primary" onclick="search()">搜索</button>-->
+        <!--</div>-->
+
+    <!--</div>-->
+    <thead>
+    <tr>
+        <th>商品号</th>
+        <th>商品标题</th>
+        <th>商品分类</th>
+        <th>商品简介</th>
+
+        <th>单价</th>
+        <th>图片</th>
+        <th>添加时间</th>
+        <th>卖家信息</th>
+        <th>卖家微信号</th>
+
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name='data' id='v'>
+        <tr id="{$v.good_id}">
+            <td >{$v.good_id}</td>
+            <td >{$v.good_title}</td>
+            <td >{$v.first_category}->{$v.second_category}->{$v.third_category}->{$v.four_category}</td>
+            <td >{$v.good_desc}</td>
+            <td>{$v.good_price}</td>
+            <td ><img src="{$Think.const.SHOW_URL}{$v.image}" height="60" width="60"/></td>
+            <td >{$v.createtime}</td>
+            <td>{$v.seller_desc}</td>
+            <td>{$v.seller_wechat}</td>
+
+            <td >
+                <a class="btn btn-primary"  href="goodinfo?id={$v.good_id}"><i class="fa fa-pencil"></i></a>
+                <a class="btn btn-danger" data-id="{$v.good_id}" data-act="del"  data-url="{:U('Good/goodHandle')}" onclick="delfunc(this)"><i class="fa fa-trash-o"></i></a>
+
+            </td>
+
+        </tr>
+    </volist>
+    </tbody>
+</table>
+</body>
+<script>
+//    function search() {
+//                var keyword=$("#keyword").val();
+//                var act=$("#selector").val();
+//                window.location.href="__CONTROLLER__/search?act="+act+"&keyword="+keyword;
+//    }
+</script>
+</html>
