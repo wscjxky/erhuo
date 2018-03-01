@@ -39,7 +39,7 @@
         font-size: 23px;
     }
     img{
-        width: 60px;height: 60px;vertical-align: top
+        width: 66px;height: 80px;vertical-align: top
     }
     #price_sort{
         margin-top: -1%;
@@ -66,7 +66,7 @@
     }
     /*分类图*/
     .result-box .result-icon {
-        width: 22px;
+        width: 30px;
         height: 30px;
         margin-right: 10px;
         padding-right: 10px;

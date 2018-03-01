@@ -20,8 +20,8 @@ define('APP_DEBUG',true);
 
 // 定义应用目录
 define('APP_PATH','./Application/');
-
-define("SITE_URL","http://47.94.251.202/");
+define('DEFAULT_MODULE','Chat');
+define("SITE_URL","http://localhost:8888/");
 //define("SITE_URL","http://localhost/");
 define("SHOW_URL",SITE_URL."erhuo/");
 define("CSS_URL",SHOW_URL."Public/css/");
